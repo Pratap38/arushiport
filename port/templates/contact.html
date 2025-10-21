@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{%static 'contact.css'%}">
+
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+    <div class="navbar">
+      <div class="headsection">
+        <h1>Contact </h1>
+      </div>
+       <div class="hamburger" id="hamburger">
+      &#9776; <!-- this is ☰ -->
+    </div>
+      <nav class="navsection" id="navMenu">
+        <ul>
+           <li><a href="{%url 'home'%}">Home</a></li>
+          <li><a href="{%url 'about'%}">About</a></li>
+          <li><a href="{%url 'project'%}">Projects</a></li>
+          <li><a href="{%url 'contact'%}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="headtext">
+      <h1><i class="fas fa-handshake"></i> Let's Work Together</h1>
+      <p>Ready to bring your ideas to life? I'm here to help with your next project. </p>
+    </div>
+    <div class="boxbodr">
+      <div class="colornav">
+      <div class="uppernav">
+      <ul>
+        <li>Contact Details</li>
+        <li>Fill Form</li>
+        <li>Connect</li>
+      </ul>
+      </div>
+      </div>
+   <div class="info">
+<h2><i class="fas fa-user-circle"></i> Personal Information</h2>
+
+
+<form method="POST">
+  {% csrf_token %}
+  
+  <label for="full_name" class="full_name">Full Name</label>
+  <input type="text" id="full_name" name="full_name" placeholder="Enter your name" class="name" required>
+
+  <label for="email" class="email_label">Email</label>
+  <input type="email" id="email" name="email" placeholder="Enter your email" class="email" required>
+
+  <label for="phone" class="phone_label">Phone Number</label>
+  <input type="tel" id="phone" name="phone" placeholder="Enter your number" class="phone">
+
+  <label for="message" class="message_label">Message</label>
+  <textarea id="message" name="message" placeholder="Message us" class="message" required></textarea>
+
+  <button type="submit" class="submit_btn">Submit</button>
+</form>
+
+</div>
+
+
+    </div>
+  </main>
+    
+</body>
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+</script>
+</html>

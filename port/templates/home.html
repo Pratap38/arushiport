@@ -1,0 +1,89 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+  <link rel="stylesheet" href="{% static 'home.css'%}" />
+  <title>Home</title>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="headsection">
+        <h1>Arushi Profile</h1>
+      </div>
+       <div class="hamburger" id="hamburger">
+      &#9776; <!-- this is ☰ -->
+    </div>
+      <nav class="navsection" id="navMenu">
+        <ul>
+          <li><a href="{%url 'home'%}">Home</a></li>
+          <li><a href="{%url 'about'%}">About</a></li>
+          <li><a href="{%url 'project'%}">Projects</a></li>
+          <li><a href="{%url 'contact'%}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="mainsplit">
+        <div class="imgleft">
+            <img class="iamgesize"   src="{{profile.image.url}}" alt="image">
+        </div>
+        
+        <div class="content">
+            <h2 class="typewritter" >Hello! I am Arushi Goswami </h2>
+            <h2 id="dynamicText"></h2>
+            <a href="{% url 'about'%}" class="resumebutton" >Check Stack</a>
+
+        </div>
+
+    
+
+    </div>
+    <div class="connection">
+        <h4>Connect </h4>
+  <a href="https://www.linkedin.com/in/arushi-goswami-2579a0315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://github.com/your-username" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+
+    
+  </main>
+</body>
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+   const texts = [
+    
+    "Python",
+    "Graphic Designer",
+    "UI/UX Designer",
+    "Video Creator",
+  ];
+
+  let index = 0;
+  const textElement = document.getElementById("dynamicText");
+
+  function changeText() {
+    index = (index + 1) % texts.length; // cycle through array
+    textElement.textContent = texts[index];
+  }
+
+  // Start changing every 1 second (1000ms)
+  setInterval(changeText, 1000);
+</script>
+
+</html>

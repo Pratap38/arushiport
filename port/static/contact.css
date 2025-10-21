@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Bitcount+Prop+Single+Ink:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    
+    
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+
+    
+}
+
+/* Logo or header */
+.headsection h1 {
+    padding: 1rem;
+background: linear-gradient(120deg, #d66d75, #e29587, #8360c3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(120, 64, 200, 0.3);
+
+  font-weight: 700;
+}
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+
+/* Nav section animation base */
+.navsection {
+  transition: max-height 0.4s ease;
+  overflow: hidden;
+  
+}
+
+
+/* List styling */
+.navsection ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+
+/* Anchor styling */
+.navsection a {
+    text-decoration: none;
+    color: rgba(255, 0, 0, 0.518);
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-shadow: 3px 3px 3px plum;
+}
+
+/* Underline animation */
+.navsection a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3.7px;
+    background-color: red;
+    transition: width 0.3s ease;
+}
+
+.navsection a:hover {
+    color: black;
+    transform: translateY(-3px);
+}
+
+.navsection a:hover::after {
+    width: 100%;
+}/* Header Text Section */
+.headtext {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: x-large;
+}
+
+.headtext h1 {
+  font-family: "Poppins", sans-serif;
+  color: #8360c3;
+  font-weight: 900;
+}
+
+.headtext p {
+  font-size: medium;
+  color: #8360c3aa;
+  font-weight: 400;
+}
+
+/* Box Container */
+.boxbodr {
+  margin: 4rem auto;
+  padding: 3rem;
+  border: 20px solid white;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 30px;
+  background-color: #8360c385;
+  box-shadow: 4px 4px 4px 4px rgba(126, 125, 125, 0.507);
+  text-align: center;
+}
+
+/* Navbar */
+.colornav {
+  border-radius: 70px;
+  margin: 0;
+}
+
+.uppernav {
+  border-radius: 30px;
+  margin: 0;
+  padding: 2px;
+}
+
+.uppernav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #8360c32d;
+  margin: 0;
+}
+
+.uppernav li {
+  list-style: none;
+  color: #8360c3;
+  font-weight: 900;
+  padding: 0.5rem;
+}
+
+/* Form Section */
+.info {
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.info h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+   font-family: 'Poppins', sans-serif;
+      
+}
+
+/* Label Styling */
+.full_name,
+.email_label,
+.phone_label,
+.message_label {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs and Textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: #8360c3;
+}
+
+textarea.message {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit_btn {
+  background-color: #8360c3;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit_btn:hover {
+  background-color: #5d3ea3;
+}
+
+
+
+
+
+/* mobile responsive */
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+    text-align: end;
+  }
+
+  .navsection {
+    width: 100%;
+    max-height: 0; /* menu hidden initially */
+  }
+
+  .navsection ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 1rem;
+  }
+
+  .navsection.show {
+    max-height: 500px; /* animated reveal */
+  }
+
+  .navsection a {
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+}
+/* ======================== */
+/* ✅ Responsive Media Query */
+/* ======================== */
+@media (max-width: 768px) {
+  .boxbodr {
+    padding: 2rem;
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  .headtext {
+    font-size: large;
+  }
+
+  .uppernav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .submit_btn {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headtext h1 {
+    font-size: 1.5rem;
+  }
+
+  .headtext p {
+    font-size: 0.9rem;
+  }
+
+  .boxbodr {
+    padding: 1.5rem;
+  }
+
+  .submit_btn {
+    font-size: 0.95rem;
+  }
+}
+

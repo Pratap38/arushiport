@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'project.css'%}" />
+  <title>Projects – Pratap Portfolio</title>
+</head>
+<body>
+
+  <!-- ===== HEADER (same navbar design) ===== -->
+  <header>
+    <div class="navbar">
+      <div class="headsection">
+        <h1> Arushi Projects</h1>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <nav class="navsection" id="navMenu">
+        <ul>
+           <li><a href="{%url 'home'%}">Home</a></li>
+          <li><a href="{%url 'about'%}">About</a></li>
+          <li><a href="{%url 'project'%}">Projects</a></li>
+          <li><a href="{%url 'contact'%}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<section class="projects">
+  <h2 class="section-title">✨ My Projects ✨</h2>
+  <div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+      <div class="card-content">
+        <h3>{{ project.tittle }}</h3>
+        <p>{{ project.describe }}</p>
+       <a href="{{ project.Project_link }}" class="btn">View Project</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+    </div>
+  </section>
+
+  <!-- optional JS for hamburger menu -->
+  <script>
+    const burger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    burger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
