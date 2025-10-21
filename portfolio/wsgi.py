@@ -1,11 +1,19 @@
+
+"""
+WSGI config for backend project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/4.0/howto/deployment/wsgi/
+"""
+
 import os
+
 from django.core.wsgi import get_wsgi_application
 
-# Set Django settings module
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings')
 
-# Get WSGI application
-app = get_wsgi_application()
+application = get_wsgi_application()
 
-# Required by Vercel
-handler = app
+app = application
