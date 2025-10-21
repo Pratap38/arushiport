@@ -1,13 +1,11 @@
-"""
-WSGI config for portfolio project.
-"""
-
 import os
 from django.core.wsgi import get_wsgi_application
 
+# Set Django settings module
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings')
 
-application = get_wsgi_application()
+# Get WSGI application
+app = get_wsgi_application()
 
-# Vercel requires this variable
-handler = application
+# Required by Vercel
+handler = app
